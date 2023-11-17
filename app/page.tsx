@@ -26,6 +26,12 @@ const Page = () => {
     dispatch(addQuote(myQuoteRef.current?.value!));
   }
 
+  const disable = () => {
+    if(quote.length === 0) {
+      return true
+    }
+  }
+
   return (
     <main className="flex flex-col items-center p-14">
       <h1 className="text-3xl font-bold">Kanye-west Quote</h1>
@@ -35,7 +41,7 @@ const Page = () => {
       </div>
       <div className="flex gap-3 mt-7">
         <Button bgColor="bg-blue-500" onClick={getQuotes}>Get Quote</Button>
-        <Button bgColor="bg-amber-400" onClick={addFavoriteHandler}>add Favorite</Button>
+        <Button bgColor="bg-amber-400" onClick={addFavoriteHandler} disabled={disable()}>add Favorite</Button>
 
       </div>
       <div className="flex gap-3 mt-7">
